@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
             seedColor: Colors.purple,
             brightness: isDarkMode ? Brightness.dark : Brightness.light,
             ),
+            fontFamily: 'Dropline',
           ),
           home: WidgetTree(),
         );

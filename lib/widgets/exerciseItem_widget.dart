@@ -92,7 +92,7 @@ class _ExerciseItemWidgetState extends State<ExerciseItemWidget> {
                             Text(
                               widget.info.exercise,
                               style: TextStyle(
-                                fontWeight: FontWeight.bold,              
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                             Text(
