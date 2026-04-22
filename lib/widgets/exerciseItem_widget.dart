@@ -76,8 +76,8 @@ class _ExerciseItemWidgetState extends State<ExerciseItemWidget> {
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black.withAlpha(60),
-                          spreadRadius: .1,
-                          blurRadius: 1,
+                          spreadRadius: 1,
+                          blurRadius: .2,
           
                         ),
                       ],
