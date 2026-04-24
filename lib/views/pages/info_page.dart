@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/views/pages/frontFoot_page.dart';
+import 'package:flutter_application_1/views/pages/bodyPages/frontFoot_page.dart';
 
 class InfoPage extends StatelessWidget {
   const InfoPage({super.key});

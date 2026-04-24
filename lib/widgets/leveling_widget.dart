@@ -58,7 +58,7 @@ class _LevelingWidgetState extends State<LevelingWidget> {
                                 Container(
                                   padding: EdgeInsets.all(12.5),
                                   child: Icon(
-                                    Icons.emoji_events,
+                                    Icons.emoji_events_rounded,
                                     color: Colors.grey[200],
                                     size: 45,
                                   ),

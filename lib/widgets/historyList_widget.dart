@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/classes/exerciseInfo.dart';
 import 'package:flutter_application_1/data/globalConst.dart';
 import 'package:flutter_application_1/data/notifiers.dart';
+import 'package:flutter_application_1/widgets/historyItem_widget.dart';
 
-class HistoryItemWidget extends StatelessWidget {
-  final Exerciseinfo info;
-  const HistoryItemWidget({
-    super.key,
-    required this.info,
-  });
+class HistoryListWidget extends StatelessWidget {
+  final List<Exerciseinfo> infos;
+
+  const HistoryListWidget({super.key, required this.infos});
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -16,36 +17,23 @@ class HistoryItemWidget extends StatelessWidget {
       valueListenable: darkModeNotifier,
       builder: (context, isDark, child) {
         return Container(
-          padding: EdgeInsets.all(15),
-          width: double.maxFinite,
-          height: 75,
+          padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             color: isDark ? darkColor : lightColor,
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withAlpha(60),
-                spreadRadius: 1,
-                blurRadius: .2,
+                spreadRadius: 2,
+                blurRadius: 5,
+                offset: Offset(2, 3)
               ),
             ],
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Column(
+            spacing: 10,
             children: [
-              Text(
-                info.exercise,
-                style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 20
-                ),
-              ),
-              Text(
-                'Completed ${info.dateCompleted.toString().split(' ')[0]}',
-                style: TextStyle(
-                  fontSize: 15
-                ),
-              ),
+              for(Exerciseinfo info in infos) if(info.completion) (HistoryItemWidget(info: info))
             ],
           ),
         );

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/data/notifiers.dart';
 
@@ -12,19 +13,19 @@ class NavbarWidget extends StatelessWidget {
         return  NavigationBar(
           destinations: [
             NavigationDestination(
-              icon: Icon(Icons.home),
+              icon: Icon(CupertinoIcons.home),
               label: 'Home'
             ),
             NavigationDestination(
-              icon: Icon(Icons.people),
+              icon: Icon(CupertinoIcons.group_solid),
               label: 'Community'
             ),
             NavigationDestination(
-              icon: Icon(Icons.info_outline),
+              icon: Icon(CupertinoIcons.info),
               label: 'Info',
             ),
             NavigationDestination(
-              icon: Icon(Icons.messenger_rounded), 
+              icon: Icon(CupertinoIcons.text_bubble), 
               label: 'Messages'
             ),
           ],

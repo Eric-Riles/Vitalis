@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/classes/exerciseInfo.dart';
 import 'package:flutter_application_1/data/globalConst.dart';
 import 'package:flutter_application_1/data/notifiers.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ExerciseItemWidget extends StatefulWidget {
   final Exerciseinfo info;
@@ -60,7 +61,14 @@ class _ExerciseItemWidgetState extends State<ExerciseItemWidget> {
       valueListenable: totalXpNotifier,
       builder: (context, xp, child) {
         return GestureDetector(
-          onTap: widget.info.completion ? () => print('previously Completed') : () {totalXpNotifier.value += widget.info.xp; widget.info.completion = true; setState(() {});},
+          onTap: widget.info.completion ? () => print('previously Completed') : () async {
+            totalXpNotifier.value += widget.info.xp;
+            final SharedPreferences prefs = await SharedPreferences.getInstance();
+            await prefs.setInt(xpKey, totalXpNotifier.value);
+            widget.info.completion = true;
+            widget.info.dateCompleted = DateTime.now();
+            setState(() {});
+          },
           child: ValueListenableBuilder(
             valueListenable: darkModeNotifier,
             builder: (context, isDark, child) {

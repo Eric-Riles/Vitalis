@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/widgets/historyItem_widget.dart';
+import 'package:flutter_application_1/data/notifiers.dart';
+import 'package:flutter_application_1/widgets/historyList_widget.dart';
 import 'package:flutter_application_1/widgets/leveling_widget.dart';
 
 class LevelingPage extends StatelessWidget {
@@ -32,7 +33,12 @@ class LevelingPage extends StatelessWidget {
               thickness: 5,
               radius: BorderRadiusGeometry.all(Radius.circular(10)),
             ),
-            HistoryItemWidget(),
+            ValueListenableBuilder(
+              valueListenable: dailyExerciseInfoNotifer,
+              builder: (context, info, child) {
+                return HistoryListWidget(infos: info);
+              }
+            )
           ],
         ),
       )
