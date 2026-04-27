@@ -1,7 +1,11 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/data/notifiers.dart';
+import 'package:flutter_application_1/views/pages/login_page.dart';
 import 'package:flutter_application_1/views/widget_tree.dart';
+import 'firebase_options.dart'; // Import the generated file
+
 
 void main() async{
  WidgetsFlutterBinding.ensureInitialized(); 
@@ -10,6 +14,9 @@ void main() async{
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   runApp(const MyApp());
 }
@@ -30,7 +37,7 @@ class MyApp extends StatelessWidget {
             ),
             fontFamily: 'Dropline',
           ),
-          home: WidgetTree(),
+          home: LoginPage(),
         );
       }
     );

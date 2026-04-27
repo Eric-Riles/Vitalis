@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/views/pages/login_page.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -8,6 +9,16 @@ class SettingsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Settings'),
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            FilledButton(
+              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) {return LoginPage();})), 
+              child: Text('Login')
+              )
+          ],
+        ),
       ),
     );
   }
