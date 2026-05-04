@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/data/notifiers.dart';
 import 'package:flutter_application_1/views/pages/login_page.dart';
-import 'package:flutter_application_1/views/widget_tree.dart';
 import 'firebase_options.dart'; // Import the generated file
 
 

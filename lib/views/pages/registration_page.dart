@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/services/auth_services.dart';
-import 'package:flutter_application_1/views/pages/home_page.dart';
 import 'package:flutter_application_1/views/widget_tree.dart';
 
 class RegistrationPage extends StatelessWidget {

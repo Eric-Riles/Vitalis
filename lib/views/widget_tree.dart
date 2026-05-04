@@ -6,7 +6,7 @@ import 'package:flutter_application_1/widgets/options_widget.dart';
 import 'package:flutter_application_1/views/pages/community_page.dart';
 import 'package:flutter_application_1/views/pages/home_page.dart';
 import 'package:flutter_application_1/views/pages/info_page.dart';
-import 'package:flutter_application_1/views/pages/messaging_page.dart';
+import 'package:flutter_application_1/views/pages/messagingHome_page.dart';
 import 'package:flutter_application_1/widgets/navbar_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -14,7 +14,7 @@ List<Widget> pages = [
   HomePage(),
   CommunityPage(),
   InfoPage(),
-  MessagingPage(),
+  MessagingHomePage(),
 ];
 
 class WidgetTree extends StatefulWidget {

@@ -14,7 +14,6 @@ class LoginPage extends StatelessWidget {
     TextEditingController user = TextEditingController();
     TextEditingController pass = TextEditingController();
     return Scaffold(
-      appBar: AppBar(title: Text('Login')),
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -8,10 +9,18 @@ class AuthServices {
     required String password,
   }) async {
     try{
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      UserCredential userCred = await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
+
+      FirebaseFirestore.instance.collection("Users").doc(userCred.user!.uid).set(
+        {
+        'uid': userCred.user!.uid,
+        'email': email,
+        }
+      );
+
       return true;
     } on FirebaseAuthException catch(e){
       String message = '';
@@ -35,10 +44,18 @@ class AuthServices {
     required String password,
   }) async {
     try{
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
+      UserCredential userCred = await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
+
+      FirebaseFirestore.instance.collection("Users").doc(userCred.user!.uid).set(
+        {
+        'uid': userCred.user!.uid,
+        'email': email,
+        }
+      );
+
       return true;
     } on FirebaseAuthException catch(e){
       String message = '';
@@ -56,5 +73,8 @@ class AuthServices {
       );
       return false;
     }
+  }
+  Future<void> logout() async{
+    return await FirebaseAuth.instance.signOut();
   }
 }
